@@ -1,0 +1,35 @@
+# Kit writes its shader caches into the working directory
+nv_shadercache/
+shadercache/
+__pycache__/
+*.pyc
+
+# generated
+outputs/
+assets/usd/
+data/
+
+# large / binary artifacts — keep the repo code-only
+*.npz
+*.npy
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.hdf5
+*.pkl
+*.mp4
+*.avi
+*.mov
+*.gif
+*.usd
+*.usda
+*.usdc
+*.usdz
+*.3mf
+*.stl
+*.obj
+*.zip
+*.tar
+*.tar.gz
+*.log
