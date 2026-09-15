@@ -1,7 +1,7 @@
 # Code review — `force_controller/` against the three design requirements
 
 Review date: 2026-08-29. Reviewed: all 11 python files in `force_controller/`, the contact-sensor
-setup in `v2s2r_isaaclab/replay.py`, and every `summary.json` under `outputs/force_controller/`.
+setup in `zerofact/replay.py`, and every `summary.json` under `outputs/force_controller/`.
 
 The requirements this review checks against:
 
@@ -178,7 +178,7 @@ s.data.force_matrix_w[0, 0, manip_col]   # force exchanged with the manipulated 
 which is PhysX's per-pair contact filter. **No tactile sensor can do that.** A real fingertip
 reports the *total* force on the pad: the object, plus the table, plus other fingers, plus anything
 else it brushes. The filter list is built from the scene objects in
-`v2s2r_isaaclab/replay.py:700-707`, so the separation is purely a simulator capability.
+`zerofact/replay.py:700-707`, so the separation is purely a simulator capability.
 
 Every run in `outputs/force_controller/` used `force_source: manipulated`, so **all current gain
 tuning rests on a signal that does not exist on hardware.**
@@ -369,7 +369,7 @@ all".
 | old privileged run, for reference | −1.82 N | −3.06 N | 302.2 mm |
 
 With the fix the overflow is gone at the **stock cap of 32** — raising it was never needed, and
-`v2s2r_isaaclab/replay.py` is untouched. (It was raised to 128 for one diagnostic run and restored.)
+`zerofact/replay.py` is untouched. (It was raised to 128 for one diagnostic run and restored.)
 
 ## Suggested order of work
 

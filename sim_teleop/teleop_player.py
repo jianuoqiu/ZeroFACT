@@ -43,8 +43,8 @@ def resolve_sim_targets(spec, robot) -> np.ndarray:
     Same recipe as the validated replay (name-based, never positional): trajectory
     name -> URDF name (data/robot/joint_name_map.json) -> sim name (conservative matcher).
     """
-    from v2s2r_isaaclab.naming import match_joint_names
-    from v2s2r_isaaclab.scene_spec import load_joint_name_map
+    from zerofact.naming import match_joint_names
+    from zerofact.scene_spec import load_joint_name_map
 
     traj_to_urdf = load_joint_name_map(spec.root.parents[1])
     urdf_to_sim = match_joint_names(
@@ -139,7 +139,7 @@ def play_trajectory(
 def _cli() -> int:
     import argparse
 
-    from v2s2r_isaaclab.runtime import check_memory, prepare_display  # before AppLauncher
+    from zerofact.runtime import check_memory, prepare_display  # before AppLauncher
 
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -179,8 +179,8 @@ def _cli() -> int:
     try:
         from isaaclab.sim import SimulationContext
 
-        from v2s2r_isaaclab.replay import ReplayConfig, build_scene, check_scene, make_simulation_cfg
-        from v2s2r_isaaclab.scene_spec import describe, load_run_spec
+        from zerofact.replay import ReplayConfig, build_scene, check_scene, make_simulation_cfg
+        from zerofact.scene_spec import describe, load_run_spec
 
         run_dir = args.data_dir / "runs" / args.run
         spec = load_run_spec(run_dir)
@@ -232,7 +232,7 @@ def _cli() -> int:
 
         traceback.print_exc()
     finally:
-        from v2s2r_isaaclab.runtime import hard_exit
+        from zerofact.runtime import hard_exit
 
         hard_exit(simulation_app, status)
     return status

@@ -48,7 +48,7 @@ import numpy as np
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from v2s2r_isaaclab.runtime import check_memory, prepare_display  # noqa: E402  (before AppLauncher)
+from zerofact.runtime import check_memory, prepare_display  # noqa: E402  (before AppLauncher)
 
 # ---------------------------------------------------------------------------------------------
 # CLI
@@ -181,8 +181,8 @@ simulation_app = app_launcher.app
 # ---------------------------------------------------------------------------------------------
 from isaaclab.sim import SimulationContext  # noqa: E402
 
-from v2s2r_isaaclab import analysis  # noqa: E402
-from v2s2r_isaaclab.replay import (  # noqa: E402
+from zerofact import analysis  # noqa: E402
+from zerofact.replay import (  # noqa: E402
     ReplayConfig,
     build_scene,
     check_scene,
@@ -190,7 +190,7 @@ from v2s2r_isaaclab.replay import (  # noqa: E402
     run_replay,
     write_video,
 )
-from v2s2r_isaaclab.scene_spec import describe, load_run_spec  # noqa: E402
+from zerofact.scene_spec import describe, load_run_spec  # noqa: E402
 
 
 def resolve_run_dir(run: str | None, data_dir: Path) -> Path:
@@ -546,6 +546,6 @@ if __name__ == "__main__":
         traceback.print_exc()
         status = 1
     finally:
-        from v2s2r_isaaclab.runtime import hard_exit
+        from zerofact.runtime import hard_exit
 
         hard_exit(simulation_app, status)

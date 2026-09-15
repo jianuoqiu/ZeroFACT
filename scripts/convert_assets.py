@@ -35,7 +35,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from v2s2r_isaaclab.runtime import prepare_display  # noqa: E402  (must run before AppLauncher)
+from zerofact.runtime import prepare_display  # noqa: E402  (must run before AppLauncher)
 
 # ---------------------------------------------------------------------------------------------
 # CLI + Isaac Sim startup
@@ -72,11 +72,11 @@ simulation_app = app_launcher.app
 import isaaclab.sim as sim_utils  # noqa: E402
 from isaaclab.sim.converters import UrdfConverter, UrdfConverterCfg  # noqa: E402
 
-from v2s2r_isaaclab.naming import format_mapping, match_joint_names  # noqa: E402
-from v2s2r_isaaclab.scene_spec import ARM_JOINT_NAMES, LEAP_JOINT_NAMES, LEAP_JOINT_RENAME  # noqa: E402
+from zerofact.naming import format_mapping, match_joint_names  # noqa: E402
+from zerofact.scene_spec import ARM_JOINT_NAMES, LEAP_JOINT_NAMES, LEAP_JOINT_RENAME  # noqa: E402
 
 # PD gains baked into the USD drives. The replay's ImplicitActuatorCfg overwrites these at runtime
-# (see v2s2r_isaaclab/replay.py), but keeping them consistent avoids a surprising first step if the
+# (see zerofact/replay.py), but keeping them consistent avoids a surprising first step if the
 # USD is ever opened directly in Isaac Sim.
 ARM_STIFFNESS, ARM_DAMPING = 400.0, 40.0
 HAND_STIFFNESS, HAND_DAMPING = 350.0, 12.0
@@ -265,6 +265,6 @@ if __name__ == "__main__":
 
         traceback.print_exc()
         status = 1
-    from v2s2r_isaaclab.runtime import hard_exit
+    from zerofact.runtime import hard_exit
 
     hard_exit(simulation_app, status)

@@ -222,8 +222,8 @@ def main() -> int:
     parser.add_argument("--timeout", type=int, default=1800)
     args = parser.parse_args()
 
-    from v2s2r_isaaclab.runtime import prepare_display
-    from v2s2r_isaaclab.scene_spec import load_run_spec
+    from zerofact.runtime import prepare_display
+    from zerofact.scene_spec import load_run_spec
 
     # Isaac Gym needs a usable X display for its graphics device, and ~/.bashrc points DISPLAY at
     # another user's session on this box.

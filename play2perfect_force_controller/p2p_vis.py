@@ -1,7 +1,7 @@
 """Visualisation helpers for the play2perfect scene: fingertip force arrows + a demo camera.
 
 Import **after** ``AppLauncher`` (Isaac Lab imports). The arrow code is the one from
-``v2s2r_isaaclab.replay`` with the fingertip list made explicit, so both robots draw their forces
+``zerofact.replay`` with the fingertip list made explicit, so both robots draw their forces
 the same way; it lives here rather than being imported so this package does not depend on the
 Kinova/LEAP scene module.
 """

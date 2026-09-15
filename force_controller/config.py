@@ -18,7 +18,7 @@ from dataclasses import dataclass, field
 
 ARM_JOINT_NAMES = [f"joint_{i}" for i in range(1, 8)]
 
-# implicit-PD joint stiffness, mirroring v2s2r_isaaclab.replay (ARM_STIFFNESS / HAND_STIFFNESS).
+# implicit-PD joint stiffness, mirroring zerofact.replay (ARM_STIFFNESS / HAND_STIFFNESS).
 # The task-space law maps desired contact force to a command offset through dq = K^-1 J^T f, so it
 # needs K; the sim runner overrides these with the live articulation's actual values.
 ARM_PD_STIFFNESS = 400.0

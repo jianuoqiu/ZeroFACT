@@ -11,7 +11,7 @@ import os
 from pathlib import Path
 
 # ---- this repo ----
-PROJECT_ROOT = Path(__file__).resolve().parents[1]           # ~/v2s2r_isaaclab
+PROJECT_ROOT = Path(__file__).resolve().parents[1]           # ~/ZeroFACT
 TELEOP_OUT_ROOT = PROJECT_ROOT / "outputs" / "sim_teleop"    # per-sequence work dirs
 RUNS_DIR = PROJECT_ROOT / "data" / "runs"                    # packaged runs land here
 

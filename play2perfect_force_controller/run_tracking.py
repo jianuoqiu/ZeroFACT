@@ -39,7 +39,7 @@ from play2perfect_force_controller.launch import (  # noqa: E402
     add_sim_args, finalize_launcher_args, hard_exit, prepare_display,
 )
 from play2perfect_force_controller.robot_spec import (  # noqa: E402
-    FRAME_DT, PALM_LINK, register_with_v2s2r_analysis,
+    FRAME_DT, PALM_LINK, register_with_zerofact_analysis,
 )
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -139,8 +139,8 @@ simulation_app = app_launcher.app
 # ---------------------------------------------------------------------------------------------
 # Isaac-dependent imports
 # ---------------------------------------------------------------------------------------------
-from v2s2r_isaaclab import analysis  # noqa: E402
-from v2s2r_isaaclab.replay import write_video  # noqa: E402
+from zerofact import analysis  # noqa: E402
+from zerofact.replay import write_video  # noqa: E402
 
 from play2perfect_force_controller.config import (  # noqa: E402
     ControllerConfig, ForceLawConfig, PolicyConfig, ReferenceConfig,
@@ -163,7 +163,7 @@ from play2perfect_force_controller.sim_runner import (  # noqa: E402
     RolloutConfig, diff_against_replay, run_force_tracking,
 )
 
-register_with_v2s2r_analysis()
+register_with_zerofact_analysis()
 
 
 def build_controller_config() -> ControllerConfig:

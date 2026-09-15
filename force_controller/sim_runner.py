@@ -1,7 +1,7 @@
 """Closed-loop force-tracking rollout in Isaac Lab.
 
 Import this module **after** ``AppLauncher`` has started Isaac Sim (same rule as
-``v2s2r_isaaclab.replay``). The scene, physics configuration and the step/update ordering are the
+``zerofact.replay``). The scene, physics configuration and the step/update ordering are the
 validated replay ones - the only change is who computes the joint-position target:
 
     replay :  target[frame]                      (recorded command, stale for the first 2 steps)
@@ -20,12 +20,12 @@ from pathlib import Path
 import numpy as np
 import torch
 
-from v2s2r_isaaclab.replay import (
+from zerofact.replay import (
     ReplayConfig,
     SceneHandles,
     _update_force_arrows,
 )
-from v2s2r_isaaclab.scene_spec import FINGERTIP_LINKS, RunSpec
+from zerofact.scene_spec import FINGERTIP_LINKS, RunSpec
 
 from .config import ControllerConfig
 from .episode import ReplayEpisode, pad_contact_centroid

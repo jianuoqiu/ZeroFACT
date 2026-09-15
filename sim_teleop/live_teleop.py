@@ -207,7 +207,7 @@ def prepare_x_display() -> None:
     import getpass
     import os
 
-    from v2s2r_isaaclab.runtime import _user_displays, _x_display_ok
+    from zerofact.runtime import _user_displays, _x_display_ok
 
     override = os.environ.get("V2S2R_DISPLAY")
     if override:
@@ -266,7 +266,7 @@ class FolderSource:
 
         cam_params = self.folder / "cam_params.txt"
         if cam_params.is_file():
-            from v2s2r_isaaclab.scene_spec import load_camera_intrinsics
+            from zerofact.scene_spec import load_camera_intrinsics
             self.intrinsics = list(load_camera_intrinsics(cam_params))
         else:
             from sim_teleop.teleop_config import REAL_INTRINSICS

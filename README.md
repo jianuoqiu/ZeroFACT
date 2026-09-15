@@ -93,7 +93,7 @@ to a different login on this shared box. The NVIDIA Vulkan ICD cannot initialise
 [carb.graphics-vulkan.plugin] vkCreateInstance failed. Vulkan 1.1 is not supported, ...
 ```
 
-Every script here calls `v2s2r_isaaclab.runtime.prepare_display()` before launching Kit: it probes
+Every script here calls `zerofact.runtime.prepare_display()` before launching Kit: it probes
 Vulkan, and if it fails, switches to the X display that belongs to the current user (`:1`). Force a
 specific one with `V2S2R_DISPLAY=:1` (or `V2S2R_DISPLAY=none`). Nothing else needs to change — this
 applies to headless runs too, because Kit still needs a Vulkan instance to render.
@@ -211,7 +211,7 @@ assets/usd/
   robot/kinova_leap.usd, robot/robot_info.json   (joint/body names + limits as Isaac Lab sees them)
   scenes/<scene_run>/obj_XXXX.usd
   index.json
-v2s2r_isaaclab/
+zerofact/
   scene_spec.py   pure-numpy scene/trajectory description (no Isaac imports)
   replay.py       Isaac Lab scene construction + control loop
   analysis.py     metrics + plots (works offline on replay_data.npz)

@@ -320,7 +320,7 @@ switched off, and re-measured on its own:
 | level | the **cause** (size deficit that saturated the integral) | the **consequence** (direction leaving the friction cone) | **infrastructure** (sensor reporting capacity) |
 | what it exactly is | per-tip `alpha` = EMA(measured/commanded along the prediction); feedforward × `1/alpha`, clamped [0.5, 6], rise ≤ 3/s | after the sum: along-part ≥ 0 (no pulls), sideways part shrunk until the angle ≤ 20° | the ContactSensor's per-pad readback list, 32 → 64 entries |
 | what it deliberately does NOT do | never scales the PID (loop stability untouched); never touches direction | never fixes any term — only bounds the damage any term can do; magnitude passes through | nothing to physics — it changes how many already-resolved contact points get *reported* |
-| off-switch | `--no-adapt-kff` | `--cone-deg 0` | the constant in `v2s2r_isaaclab/replay.py` |
+| off-switch | `--no-adapt-kff` | `--cone-deg 0` | the constant in `zerofact/replay.py` |
 | addressed a *measured* problem | integral pinned 66–72 %, thumb −27 N | thumb 29–35° vs the 19.3° cone, dropped jar | 1–2 of 4 runs crashed mid-episode |
 | validation | 4/4 jar held, `17-52-54` thumb → +0.6 N, clamp time → 36–40 % | 3/3 held pre-adaptive, thumb angle 17–24° | 0 overflows after; **exact-replay bit-exact** after the change (the physics-neutrality proof) |
 | honest weakness | estimator sees the closed-loop ratio → partial desaturation only | global 20°, and the cone axis is the *predicted* normal, not the actual one | none (capacity) |

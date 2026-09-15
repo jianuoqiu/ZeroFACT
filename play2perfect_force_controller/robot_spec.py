@@ -187,15 +187,15 @@ def default_joint_stiffness(joint_names: list[str]) -> list[float]:
     return [table[n] for n in joint_names]
 
 
-def register_with_v2s2r_analysis() -> None:
-    """Teach the shared v2s2r_isaaclab plotting/video code this hand's fingertip names.
+def register_with_zerofact_analysis() -> None:
+    """Teach the shared zerofact plotting/video code this hand's fingertip names.
 
-    ``v2s2r_isaaclab.analysis`` colours and labels fingertips through the module-level dicts of
-    ``v2s2r_isaaclab.scene_spec``; extending those dicts in place is all it takes for the contact
+    ``zerofact.analysis`` colours and labels fingertips through the module-level dicts of
+    ``zerofact.scene_spec``; extending those dicts in place is all it takes for the contact
     force plots and the annotated videos to name the five fingertips instead of falling back to
     grey + raw body names. Call once before plotting.
     """
-    from v2s2r_isaaclab import scene_spec
+    from zerofact import scene_spec
 
     scene_spec.FINGERTIP_COLORS.update(FINGERTIP_COLORS)
     scene_spec.FINGERTIP_LABELS.update(FINGERTIP_LABELS)

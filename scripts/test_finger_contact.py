@@ -23,7 +23,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from v2s2r_isaaclab.runtime import prepare_display  # noqa: E402
+from zerofact.runtime import prepare_display  # noqa: E402
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 parser.add_argument("--run", required=True)
@@ -63,8 +63,8 @@ from isaaclab.assets import Articulation, ArticulationCfg, RigidObject, RigidObj
 from isaaclab.sim import SimulationContext  # noqa: E402
 from scipy.spatial.transform import Rotation as R  # noqa: E402
 
-from v2s2r_isaaclab import replay as rp  # noqa: E402
-from v2s2r_isaaclab.scene_spec import describe, load_run_spec, quat_xyzw_to_wxyz  # noqa: E402
+from zerofact import replay as rp  # noqa: E402
+from zerofact.scene_spec import describe, load_run_spec, quat_xyzw_to_wxyz  # noqa: E402
 
 FINGERS = {"index": ("fingertip", ["leap_j1", "leap_j0", "leap_j2", "leap_j3"]),
            "middle": ("fingertip_2", ["leap_j5", "leap_j4", "leap_j6", "leap_j7"]),
@@ -325,6 +325,6 @@ if __name__ == "__main__":
 
         traceback.print_exc()
         status = 1
-    from v2s2r_isaaclab.runtime import hard_exit
+    from zerofact.runtime import hard_exit
 
     hard_exit(simulation_app, status)

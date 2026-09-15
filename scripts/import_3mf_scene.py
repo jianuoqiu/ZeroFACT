@@ -566,7 +566,7 @@ def main() -> int:
     (run_dir / "run_meta.json").write_text(json.dumps(meta, indent=2))
 
     # ---- validate through the standard loader ----
-    from v2s2r_isaaclab.scene_spec import describe, load_run_spec
+    from zerofact.scene_spec import describe, load_run_spec
     spec = load_run_spec(run_dir)
     print("=" * 78)
     print(describe(spec))

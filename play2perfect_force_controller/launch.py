@@ -12,7 +12,7 @@ from __future__ import annotations
 import argparse
 
 from .p2p_paths import PROJECT_ROOT  # noqa: F401  (side effect: none; documents the dependency)
-from v2s2r_isaaclab.runtime import check_memory, hard_exit, prepare_display  # noqa: F401
+from zerofact.runtime import check_memory, hard_exit, prepare_display  # noqa: F401
 
 COMPAT_EXTENSIONS = ["omni.replicator.core", "omni.kit.viewport.rtx", "omni.kit.material.library"]
 COMPAT_GUI_EXTENSIONS = [

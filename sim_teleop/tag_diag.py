@@ -1,10 +1,12 @@
 """Live AprilTag wrist-tag diagnostic. Hold the printed tag in front of the RealSense."""
 import sys, os, time
-sys.path.insert(0, os.path.expanduser("~/v2s2r_isaaclab"))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
 import numpy as np, cv2
 from sim_teleop.live_teleop import RealSenseSource
 
-OUT = "/tmp/claude-1202/-home-jianuoqiu-v2s2r-isaaclab/71e0e212-69d8-4e97-9b1d-40c6254efda6/scratchpad"
+OUT = os.path.join(ROOT, "outputs", "tag_diag")
+os.makedirs(OUT, exist_ok=True)
 dic = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_APRILTAG_36h11)
 pA = cv2.aruco.DetectorParameters(); pA.cornerRefinementMethod = cv2.aruco.CORNER_REFINE_APRILTAG
 detA = cv2.aruco.ArucoDetector(dic, pA)                       # teleop's exact config

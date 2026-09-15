@@ -6,7 +6,7 @@ from pathlib import Path
 
 import numpy as np
 
-# one colour per fingertip, same palette as v2s2r_isaaclab (tab10) so plots stay comparable
+# one colour per fingertip, same palette as zerofact (tab10) so plots stay comparable
 FINGERTIP_COLORS = {
     "fingertip": (0.121, 0.466, 0.705),
     "fingertip_2": (1.000, 0.498, 0.054),

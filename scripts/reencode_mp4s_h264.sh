@@ -1,6 +1,6 @@
 #!/bin/bash
 # Re-encode legacy mpeg4 ("mp4v") videos to H.264 so VS Code/Chromium can play them.
-# New videos are already H.264 (see v2s2r_isaaclab/video.py); this fixes files written
+# New videos are already H.264 (see zerofact/video.py); this fixes files written
 # before that change. Safe and idempotent: converts to a temp file, replaces the
 # original only on ffmpeg success, and skips files that are already H.264.
 #

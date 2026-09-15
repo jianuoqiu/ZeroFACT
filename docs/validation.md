@@ -92,7 +92,7 @@ Two more edits were landing in the same blind spot:
   mass or inertia. The port now authors mass × s³ and inertia × s⁵ but the **unscaled** CoM, and the
   effective values read back from PhysX match Isaac Gym's `set_actor_scale` exactly (see below).
 
-`v2s2r_isaaclab/replay.py::_prepare_colliders` now flattens the instanced scopes first, re-applies
+`zerofact/replay.py::_prepare_colliders` now flattens the instanced scopes first, re-applies
 the collision properties and the material, and then **verifies** the result, printing e.g.
 
 ```

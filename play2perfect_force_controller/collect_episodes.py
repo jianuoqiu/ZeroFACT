@@ -58,7 +58,7 @@ from play2perfect_force_controller.launch import (  # noqa: E402
 )
 from play2perfect_force_controller.robot_spec import (  # noqa: E402
     FRAME_DT, MANIPULATED_KEY, PHYSICS_DT, STEPS_PER_FRAME, TRACKED_LINKS,
-    register_with_v2s2r_analysis,
+    register_with_zerofact_analysis,
 )
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -123,14 +123,14 @@ simulation_app = app_launcher.app
 # ---------------------------------------------------------------------------------------------
 import torch  # noqa: E402
 
-from v2s2r_isaaclab import analysis  # noqa: E402
-from v2s2r_isaaclab.replay import write_video  # noqa: E402
+from zerofact import analysis  # noqa: E402
+from zerofact.replay import write_video  # noqa: E402
 
 from play2perfect_force_controller.p2p_env import (  # noqa: E402
     RECORDED_OBJECTS, AssemblyBench, SceneOptions, load_policy, make_env_cfg,
 )
 
-register_with_v2s2r_analysis()
+register_with_zerofact_analysis()
 
 
 def obs_to_numpy(obs) -> np.ndarray:

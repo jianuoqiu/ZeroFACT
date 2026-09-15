@@ -63,7 +63,7 @@ def main() -> int:
 
     import argparse
 
-    from v2s2r_isaaclab.runtime import prepare_display
+    from zerofact.runtime import prepare_display
 
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--force", action="store_true", help="reconvert even if the USD exists")
@@ -79,7 +79,7 @@ def main() -> int:
     try:
         from isaaclab.sim.converters import UrdfConverter, UrdfConverterCfg
 
-        from v2s2r_isaaclab.replay import HAND_DAMPING, HAND_STIFFNESS
+        from zerofact.replay import HAND_DAMPING, HAND_STIFFNESS
 
         usd_path = OUT_DIR / "leap_float.usd"
         if usd_path.is_file() and not args.force:
@@ -131,7 +131,7 @@ def main() -> int:
 
         traceback.print_exc()
     finally:
-        from v2s2r_isaaclab.runtime import hard_exit
+        from zerofact.runtime import hard_exit
 
         hard_exit(app, status)
     return status

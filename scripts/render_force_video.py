@@ -23,7 +23,7 @@ import numpy as np
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from v2s2r_isaaclab import analysis  # noqa: E402
+from zerofact import analysis  # noqa: E402
 
 
 def read_video_frames(path: Path) -> tuple[list[np.ndarray], float]:

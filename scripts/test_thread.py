@@ -25,7 +25,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from v2s2r_isaaclab.runtime import prepare_display  # noqa: E402
+from zerofact.runtime import prepare_display  # noqa: E402
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 parser.add_argument("--run", required=True, help="run name under data/runs")
@@ -56,8 +56,8 @@ import torch  # noqa: E402
 from isaaclab.sim import SimulationContext  # noqa: E402
 from scipy.spatial.transform import Rotation as R  # noqa: E402
 
-from v2s2r_isaaclab.replay import ReplayConfig, build_scene, make_simulation_cfg  # noqa: E402
-from v2s2r_isaaclab.scene_spec import describe, load_run_spec, quat_wxyz_to_xyzw  # noqa: E402
+from zerofact.replay import ReplayConfig, build_scene, make_simulation_cfg  # noqa: E402
+from zerofact.scene_spec import describe, load_run_spec, quat_wxyz_to_xyzw  # noqa: E402
 
 
 def resolve_assets(spec, usd_dir: Path):
@@ -208,6 +208,6 @@ if __name__ == "__main__":
 
         traceback.print_exc()
         status = 1
-    from v2s2r_isaaclab.runtime import hard_exit
+    from zerofact.runtime import hard_exit
 
     hard_exit(simulation_app, status)

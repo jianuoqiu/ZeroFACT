@@ -61,7 +61,7 @@ def _cli() -> int:
     import argparse
 
     from sim_teleop.teleop_config import DEFAULT_SCENE_DONOR, LIVE_UDP_ADDR
-    from v2s2r_isaaclab.runtime import check_memory, prepare_display  # before AppLauncher
+    from zerofact.runtime import check_memory, prepare_display  # before AppLauncher
 
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -111,9 +111,9 @@ def _cli() -> int:
 
         from isaaclab.sim import SimulationContext
 
-        from v2s2r_isaaclab.naming import format_mapping, match_joint_names
-        from v2s2r_isaaclab.replay import ReplayConfig, build_scene, check_scene, make_simulation_cfg
-        from v2s2r_isaaclab.scene_spec import describe, load_joint_name_map, load_run_spec
+        from zerofact.naming import format_mapping, match_joint_names
+        from zerofact.replay import ReplayConfig, build_scene, check_scene, make_simulation_cfg
+        from zerofact.scene_spec import describe, load_joint_name_map, load_run_spec
 
         run_dir = args.data_dir / "runs" / args.scene_from
         spec = load_run_spec(run_dir)
@@ -147,7 +147,7 @@ def _cli() -> int:
             from isaaclab.actuators import ImplicitActuatorCfg
             from isaaclab.assets import Articulation, ArticulationCfg, RigidObject, RigidObjectCfg
 
-            from v2s2r_isaaclab.replay import (
+            from zerofact.replay import (
                 ENV_PRIM,
                 GROUND_FRICTION,
                 HAND_DAMPING,
@@ -160,7 +160,7 @@ def _cli() -> int:
                 object_rigid_props,
                 prepare_object_colliders,
             )
-            from v2s2r_isaaclab.scene_spec import quat_xyzw_to_wxyz
+            from zerofact.scene_spec import quat_xyzw_to_wxyz
 
             hand_usd = args.usd_dir / "robot" / "leap_float.usd"
             if not hand_usd.is_file():
@@ -403,7 +403,7 @@ def _cli() -> int:
 
         traceback.print_exc()
     finally:
-        from v2s2r_isaaclab.runtime import hard_exit
+        from zerofact.runtime import hard_exit
 
         hard_exit(simulation_app, status)
     return status

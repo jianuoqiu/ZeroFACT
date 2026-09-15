@@ -394,7 +394,7 @@ otherwise from volume x PLA density x a fill fraction - pass `--mass` for small 
 **Threads need SDF colliders.** The default convex decomposition has no thread (a nut becomes
 a solid ring of hulls, a screw a smooth cylinder), so interlocking parts get
 `--collision <idx>=sdf`: the run_meta object carries `"collision": "sdf"` and
-`v2s2r_isaaclab.replay.build_scene` gives that object a PhysX signed-distance-field triangle
+`zerofact.replay.build_scene` gives that object a PhysX signed-distance-field triangle
 mesh (resolution 256, `SDF_RESOLUTION` in replay.py). In `scene_m110` both parts are SDF and the
 nut starts 84 mm up the screw at the yaw where the helices mate (`--place 0=x,y,178.5,0.084`,
 found by fitting the M110x6 helix phase of both meshes). `scripts/test_thread.py --run scene_m110`
@@ -402,7 +402,7 @@ checks the physics: it pushes the nut with 15 N (`--push-force`) down and sidewa
 the thread to hold (slip < 1.5 mm), then a torque about Z turns the nut down the screw at
 5.9 mm/turn (pitch 6 mm) until it bottoms on the head, 0.1 mm off-axis.
 
-SDF objects also get their own contact settings (`SDF_*` in `v2s2r_isaaclab/replay.py`: 64
+SDF objects also get their own contact settings (`SDF_*` in `zerofact/replay.py`: 64
 position iterations, 5 mm contact offset, 2 m/s depenetration cap). With the grasping defaults a
 200 N push - trivial for the fixed-base PD arm pressing against a welded screw - drove the nut
 14 mm through the thread and the depenetration kick then flung it away ("the screw and nut
